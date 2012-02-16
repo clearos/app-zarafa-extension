@@ -1,26 +1,31 @@
 
-Name: app-zarafa-extension-core
-Group: ClearOS/Libraries
+Name: app-zarafa-extension
+Epoch: 1
 Version: 5.9.9.1
 Release: 1%{dist}
 Summary: Zarafa Accounts Extension - APIs and install
 License: LGPLv3
-Packager: ClearFoundation
-Vendor: ClearFoundation
+Group: ClearOS/Libraries
 Source: app-zarafa-extension-%{version}.tar.gz
 Buildarch: noarch
+
+%description
+Zarafa Accounts Extension long description
+
+%package core
+Summary: Zarafa Accounts Extension - APIs and install
 Requires: app-base-core
 Requires: app-openldap-directory-core
 Requires: app-contact-extension-core
 Requires: app-users
 
-%description
+%description core
 Zarafa Accounts Extension long description
 
 This package provides the core API and libraries.
 
 %prep
-%setup -q -n app-zarafa-extension-%{version}
+%setup -q
 %build
 
 %install
@@ -31,7 +36,7 @@ install -d -m 0755 %{buildroot}/var/clearos/zarafa_extension
 install -d -m 0755 %{buildroot}/var/clearos/zarafa_extension/backup
 install -D -m 0644 packaging/zarafa.php %{buildroot}/var/clearos/openldap_directory/extensions/10_zarafa.php
 
-%post
+%post core
 logger -p local6.notice -t installer 'app-zarafa-extension-core - installing'
 
 if [ $1 -eq 1 ]; then
@@ -42,7 +47,7 @@ fi
 
 exit 0
 
-%preun
+%preun core
 if [ $1 -eq 0 ]; then
     logger -p local6.notice -t installer 'app-zarafa-extension-core - uninstalling'
     [ -x /usr/clearos/apps/zarafa_extension/deploy/uninstall ] && /usr/clearos/apps/zarafa_extension/deploy/uninstall
@@ -50,7 +55,7 @@ fi
 
 exit 0
 
-%files
+%files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/zarafa_extension/packaging
 %exclude /usr/clearos/apps/zarafa_extension/tests
