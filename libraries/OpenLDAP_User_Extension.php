@@ -7,7 +7,7 @@
  * @package    Zarafa_Extension
  * @subpackage Libraries
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2012 ClearFoundation
  * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/zarafa_extension/
  */
@@ -46,33 +46,17 @@ require_once $bootstrap . '/bootstrap.php';
 // T R A N S L A T I O N S
 ///////////////////////////////////////////////////////////////////////////////
 
-clearos_load_language('base');
+clearos_load_language('zarafa_extension');
 
 ///////////////////////////////////////////////////////////////////////////////
 // D E P E N D E N C I E S
 ///////////////////////////////////////////////////////////////////////////////
 
-// Classes
-//--------
-
 use \clearos\apps\base\Engine as Engine;
-use \clearos\apps\base\Shell as Shell;
 use \clearos\apps\openldap_directory\Utilities as Utilities;
-use \clearos\apps\samba\OpenLDAP_Driver as OpenLDAP_Driver;
-use \clearos\apps\samba\Samba as Samba;
 
 clearos_load_library('base/Engine');
-clearos_load_library('base/Shell');
 clearos_load_library('openldap_directory/Utilities');
-clearos_load_library('samba/OpenLDAP_Driver');
-clearos_load_library('samba/Samba');
-
-// Exceptions
-//-----------
-
-use \clearos\apps\base\Engine_Exception as Engine_Exception;
-
-clearos_load_library('base/Engine_Exception');
 
 ///////////////////////////////////////////////////////////////////////////////
 // C L A S S
@@ -118,7 +102,7 @@ class OpenLDAP_User_Extension extends Engine
     /** 
      * Add LDAP attributes hook.
      *
-     * @param array $user_info user information in hash array
+     * @param array $user_info   user information in hash array
      * @param array $ldap_object LDAP object
      *
      * @return array LDAP attributes
@@ -129,28 +113,29 @@ class OpenLDAP_User_Extension extends Engine
     {
         clearos_profile(__METHOD__, __LINE__);
 
-        // Set defaults
-        //-------------
-
-
-        // Convert to LDAP attributes
-        //---------------------------
-
         $attributes = Utilities::convert_array_to_attributes($user_info['extensions']['zarafa'], $this->info_map);
 
-        // Add built-in attributes
-        //------------------------
-
-/*
-        $attributes['sambaPrimaryGroupSID'] = "$sid-" . Samba::CONSTANT_DOMAIN_USERS_RID;
-        $attributes['sambaDomainName'] = $domain;
-        $attributes['sambaNTPassword'] = $ldap_object['clearMicrosoftNTPassword'];
-        $attributes['sambaPwdLastSet'] = time();
-        $attributes['sambaBadPasswordCount'] = 0;
-        $attributes['sambaBadPasswordTime'] = 0;
-*/
-
         return $attributes;
+    }
+
+    /**
+     * Returns user info defaults hash array.
+     *
+     * @param string $username username
+     *
+     * @return array user info defaults array
+     * @throws Engine_Exception
+     */
+
+    public function get_info_defaults_hook($username)
+    {
+        clearos_profile(__METHOD__, __LINE__);
+
+        $info['hard_quota'] = 10000;
+        $info['administrator_flag'] = FALSE;
+        $info['account_flag'] = TRUE;
+
+        return $info;
     }
 
     /**
@@ -188,7 +173,7 @@ class OpenLDAP_User_Extension extends Engine
     /** 
      * Update LDAP attributes hook.
      *
-     * @param array $user_info user information in hash array
+     * @param array $user_info   user information in hash array
      * @param array $ldap_object LDAP object
      *
      * @return array LDAP attributes
