@@ -17,6 +17,7 @@ Summary: Zarafa Extension - APIs and install
 Requires: app-base-core
 Requires: app-openldap-directory-core
 Requires: app-contact-extension-core
+Requires: app-mail-extension-core
 Requires: app-users
 
 %description core
