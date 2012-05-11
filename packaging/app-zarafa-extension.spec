@@ -1,9 +1,9 @@
 
 Name: app-zarafa-extension
 Epoch: 1
-Version: 1.0.5
+Version: 1.1.4
 Release: 1%{dist}
-Summary: Zarafa Extension - APIs and install
+Summary: Zarafa Extension - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Source: app-zarafa-extension-%{version}.tar.gz
@@ -13,11 +13,12 @@ Buildarch: noarch
 Zarafa Extension description
 
 %package core
-Summary: Zarafa Extension - APIs and install
+Summary: Zarafa Extension - Core
 Requires: app-base-core
-Requires: app-openldap-directory-core
 Requires: app-contact-extension-core
 Requires: app-mail-extension-core
+Requires: app-openldap-directory-core
+Requires: app-smtp-plugin-core
 Requires: app-users
 
 %description core
