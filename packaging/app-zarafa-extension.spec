@@ -1,7 +1,7 @@
 
 Name: app-zarafa-extension
 Epoch: 1
-Version: 1.1.4
+Version: 1.1.6
 Release: 1%{dist}
 Summary: Zarafa Extension - Core
 License: LGPLv3
