@@ -113,6 +113,18 @@ class OpenLDAP_User_Extension extends Engine
     {
         clearos_profile(__METHOD__, __LINE__);
 
+        // Implied fields
+        //---------------
+
+        if (isset($user_info['extensions']['zarafa']['hard_quota'])) {
+            $user_info['extensions']['zarafa']['quota_override'] = 1;
+            $user_info['extensions']['zarafa']['warning_quota'] = round(0.90 * $user_info['extensions']['zarafa']['hard_quota']);
+            $user_info['extensions']['zarafa']['soft_quota'] = round(0.95 * $user_info['extensions']['zarafa']['hard_quota']);
+        }
+
+        // Convert attributes
+        //-------------------
+
         $attributes = Utilities::convert_array_to_attributes($user_info['extensions']['zarafa'], $this->info_map);
 
         return $attributes;
