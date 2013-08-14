@@ -6,28 +6,11 @@
  * @category   apps
  * @package    zarafa-extension
  * @subpackage libraries
- * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011-2012 ClearFoundation
- * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
- * @link       http://www.clearfoundation.com/docs/developer/apps/zarafa_extension/
+ * @author     ClearCenter <developer@clearcenter.com>
+ * @copyright  2012-2013 ClearCenter
+ * @license    http://www.clearcenter.com/app_license ClearCenter license
+ * @link       http://www.clearcenter.com/support/documentation/clearos/zarafa_extension/
  */
-
-///////////////////////////////////////////////////////////////////////////////
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
 // N A M E S P A C E
@@ -68,10 +51,10 @@ clearos_load_library('openldap_directory/Utilities');
  * @category   apps
  * @package    zarafa-extension
  * @subpackage libraries
- * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
- * @license    http://www.gnu.org/copyleft/lgpl.html GNU Lesser General Public License version 3 or later
- * @link       http://www.clearfoundation.com/docs/developer/apps/zarafa_extension/
+ * @author     ClearCenter <developer@clearcenter.com>
+ * @copyright  2012-2013 ClearCenter
+ * @license    http://www.clearcenter.com/app_license ClearCenter license
+ * @link       http://www.clearcenter.com/support/documentation/clearos/zarafa_extension/
  */
 
 class OpenLDAP_User_Extension extends Engine

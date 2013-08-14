@@ -5,12 +5,12 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'zarafa_extension';
-$app['version'] = '1.2.6';
+$app['version'] = '1.4.70';
 $app['release'] = '1';
-$app['vendor'] = 'ClearFoundation';
-$app['packager'] = 'ClearFoundation';
-$app['license'] = 'GPLv3';
-$app['license_core'] = 'LGPLv3';
+$app['vendor'] = 'ClearCenter';
+$app['packager'] = 'ClearCenter';
+$app['license'] = 'ClearCenter';
+$app['license_core'] = 'ClearCenter';
 $app['description'] = lang('zarafa_extension_app_description');
 
 /////////////////////////////////////////////////////////////////////////////

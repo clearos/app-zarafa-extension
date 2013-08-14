@@ -1,10 +1,10 @@
 
 Name: app-zarafa-extension
 Epoch: 1
-Version: 1.2.6
+Version: 1.4.70
 Release: 1%{dist}
 Summary: Zarafa Extension - Core
-License: LGPLv3
+License: ClearCenter
 Group: ClearOS/Libraries
 Source: app-zarafa-extension-%{version}.tar.gz
 Buildarch: noarch
