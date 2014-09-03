@@ -1,7 +1,7 @@
 
 Name: app-zarafa-extension
 Epoch: 1
-Version: 1.4.70
+Version: 1.6.5
 Release: 1%{dist}
 Summary: Zarafa Extension - Core
 License: ClearCenter
@@ -58,7 +58,6 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/zarafa_extension/packaging
-%exclude /usr/clearos/apps/zarafa_extension/tests
 %dir /usr/clearos/apps/zarafa_extension
 /usr/clearos/apps/zarafa_extension/deploy
 /usr/clearos/apps/zarafa_extension/language
