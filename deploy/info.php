@@ -41,3 +41,5 @@ $app['core_file_manifest'] = array(
         'target' => '/var/clearos/openldap_directory/extensions/70_zarafa.php'
     ),
 );
+
+$app['delete_dependency'] = array();
