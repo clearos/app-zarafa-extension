@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'zarafa_extension';
-$app['version'] = '2.1.6';
+$app['version'] = '2.3.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearCenter';
 $app['packager'] = 'ClearCenter';
